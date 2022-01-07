@@ -3,19 +3,19 @@ let arr = JSON.parse(localStorage.getItem("cartArr")) || [];
 cartQuantity();
 displayCartItems();
 function cartQuantity() {
-    let total = arr.length;
+  let total = arr.length;
 
-    let myCart = document.getElementById("myCart");
-    myCart.innerHTML = "My Cart ( " + total + " )";
+  let myCart = document.getElementById("myCart");
+  myCart.innerHTML = "My Cart ( " + total + " )";
 }
 
 function displayCartItems() {
-    let cartItems = document.getElementById("cart");
-    cartItems.innerHTML = "";
-    for (let i = 0; i < arr.length; i++) {
-        let cartItem = document.createElement("div");
-        cartItem.classList.add("cart_item");
-        cartItem.innerHTML = `
+  let cartItems = document.getElementById("cart");
+  cartItems.innerHTML = "";
+  for (let i = 0; i < arr.length; i++) {
+    let cartItem = document.createElement("div");
+    cartItem.classList.add("cart_item");
+    cartItem.innerHTML = `
         <div class="cart_item_image">
           <img src="${arr[i].strMealThumb}" alt="${arr[i].name}" />
         </div>
@@ -27,17 +27,17 @@ function displayCartItems() {
           <button class="remove_button" onclick="removeItem(${i})">Remove</button>
         </div>
       `;
-        cartItems.appendChild(cartItem);
-    }
+    cartItems.appendChild(cartItem);
+  }
 }
 displayCartDetails();
 function displayCartDetails() {
-    let cartDetails = document.getElementById("total");
-    cartDetails.innerHTML = "";
-    let totalPrice = arr.reduce(function (acc, el) {
-        return acc + el.price;
-    }, 0);
-    cartDetails.innerHTML = `
+  let cartDetails = document.getElementById("total");
+  cartDetails.innerHTML = "";
+  let totalPrice = arr.reduce(function (acc, el) {
+    return acc + el.price;
+  }, 0);
+  cartDetails.innerHTML = `
       <div class="cart_details_total">
         <h1>Total ( ${arr.length} )</h1>
         <h1>₹${totalPrice}</h1>
@@ -49,9 +49,9 @@ function displayCartDetails() {
 }
 
 function removeItem(index) {
-    arr.splice(index, 1);
-    localStorage.setItem("arr", JSON.stringify(arr));
-    displayCartDetails();
-    displayCartItems();
-    cartQuantity();
+  arr.splice(index, 1);
+  localStorage.setItem("cartArr", JSON.stringify(arr));
+  displayCartDetails();
+  displayCartItems();
+  cartQuantity();
 }
