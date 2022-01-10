@@ -1,4 +1,4 @@
-let arr = JSON.parse(localStorage.getItem("meals")) || [];
+let arr = [];
 let cartArr = JSON.parse(localStorage.getItem("cartArr")) || [];
 cartQuantity();
 function cartQuantity() {
@@ -18,18 +18,14 @@ async function getMeals() {
         const data = await response.json();
         console.log(data);
         arr = data.meals;
-        localStorage.setItem("meals", JSON.stringify(arr));
+        // localStorage.setItem("meals", JSON.stringify(arr));
         display(arr);
     } catch (error) {
         console.log(error);
     }
 }
 
-if (arr.length == 0) {
-    getMeals();
-} else {
-    display(arr);
-}
+getMeals()
 
 function display(arr) {
     arr.map(function (el, index) {
