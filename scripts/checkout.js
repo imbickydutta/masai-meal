@@ -8,7 +8,8 @@ function cartQuantity() {
     myCart.innerHTML = "My Cart ( " + total + " )";
 }
 
-function notifications() {
+function placeOrder(e) {
+    e.preventDefault();
     arr = [];
 
     localStorage.setItem("cartArr", JSON.stringify(arr));

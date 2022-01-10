@@ -1,4 +1,4 @@
-let arr = JSON.parse(localStorage.getItem("cartArr")) || [];
+let arr = JSON.parse(localStorage.getItem("cart")) || [];
 
 cartQuantity();
 displayCartItems();
@@ -24,7 +24,7 @@ function displayCartItems() {
           <p>₹${arr[i].price}</p>
         </div>
         <div class="cart_item_remove">
-          <button class="remove_button" onclick="removeItem(${i})">Remove</button>
+          <button id="remove-btn" class="remove_button" onclick="removeItem(${i})">Remove</button>
         </div>
       `;
     cartItems.appendChild(cartItem);
@@ -50,7 +50,7 @@ function displayCartDetails() {
 
 function removeItem(index) {
   arr.splice(index, 1);
-  localStorage.setItem("cartArr", JSON.stringify(arr));
+  localStorage.setItem("cart", JSON.stringify(arr));
   displayCartDetails();
   displayCartItems();
   cartQuantity();

@@ -1,8 +1,8 @@
 let arr = [];
-let cartArr = JSON.parse(localStorage.getItem("cartArr")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 cartQuantity();
 function cartQuantity() {
-    let total = cartArr.length;
+    let total = cart.length;
 
     // let myCart = document.getElementById("myCart");
     let cartCount = document.getElementById("count");
@@ -43,7 +43,7 @@ function display(arr) {
         <h3>${el.strMeal}</h3>
         <p>Rating ${el.rating}⭐</p>
         <p>₹${el.price}</p>
-        <button onclick="addToCart(${index})">Add to Cart</button>
+        <button id="addtocart" onclick="addToCart(${index})">Add to Cart</button>
         `;
         document.getElementById("menu").appendChild(item);
     });
@@ -52,8 +52,8 @@ function display(arr) {
 }
 
 function addToCart(index) {
-    cartArr.push(arr[index]);
-    localStorage.setItem("cartArr", JSON.stringify(cartArr));
+    cart.push(arr[index]);
+    localStorage.setItem("cart", JSON.stringify(cart));
     // console.log(cartArr);
     cartQuantity();
 }

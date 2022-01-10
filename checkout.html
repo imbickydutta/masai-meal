@@ -21,18 +21,12 @@
         <h3><a href="#">Sign Up</a></h3>
       </div>
     </div>
-    <div id="order-form">
-      <!--Add your form html element here-->
-
-      <h3>Enter your address</h3>
-
-      <input type="text" placeholder="Address" required />
-      <input type="text" placeholder="City" required />
-      <input type="text" placeholder="State" required />
-      <input type="text" placeholder="Zip Code" required />
-      <input type="text" placeholder="Country" required />
-      <button onclick="notifications()">Place Order</button>
-    </div>
+    <form id="order-form" onsubmit="placeOrder(event)">
+      <input type="text" id="name" placeholder="Name" />
+      <input type="number" id="number" placeholder="Number" />
+      <input type="text" id="address" placeholder="Address" />
+      <input id="submit" type="submit" />
+    </form>
   </body>
 </html>
 
