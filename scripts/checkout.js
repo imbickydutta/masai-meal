@@ -12,7 +12,7 @@ function placeOrder(e) {
     e.preventDefault();
     arr = [];
 
-    localStorage.setItem("cartArr", JSON.stringify(arr));
+    localStorage.setItem("cart", JSON.stringify(arr));
     cartQuantity();
 
     alert("Order Accepted");
