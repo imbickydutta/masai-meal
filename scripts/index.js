@@ -4,8 +4,10 @@ cartQuantity();
 function cartQuantity() {
     let total = cartArr.length;
 
-    let myCart = document.getElementById("myCart");
-    myCart.innerHTML = "My Cart ( " + total + " )";
+    // let myCart = document.getElementById("myCart");
+    let cartCount = document.getElementById("count");
+    cartCount.innerHTML = total;
+    // myCart.innerHTML = "My Cart ( " + total + " )";
 }
 
 var url = "https://www.themealdb.com/api/json/v1/1/filter.php?a=Indian";
