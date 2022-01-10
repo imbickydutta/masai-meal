@@ -1,4 +1,4 @@
-let arr = JSON.parse(localStorage.getItem("cartArr")) || [];
+let arr = JSON.parse(localStorage.getItem("cart")) || [];
 cartQuantity();
 
 function cartQuantity() {
